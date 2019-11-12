@@ -37,11 +37,21 @@ public class PlayerController : MonoBehaviour
                 animator.Play("Player_Run");
                 spriteRenderer.flipX = false;
             }
+            if (Input.GetKey("w"))
+            {
+                animator.Play("Player_Run");
+            }
+            else if (Input.GetKey("s"))
+            {
+                animator.Play("Player_Run");
+            }
         }
         else
         {
             animator.Play("Player_Idle");
         }
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6f, 6f), Mathf.Clamp(transform.position.y, -4.4f, 0.3f), transform.position.z);
     }
 
     void Move()
