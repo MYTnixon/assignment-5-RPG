@@ -58,4 +58,12 @@ public class PlayerController : MonoBehaviour
     {
         rbody.MovePosition(transform.position + vector * speed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }

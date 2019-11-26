@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractButton
   - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX
