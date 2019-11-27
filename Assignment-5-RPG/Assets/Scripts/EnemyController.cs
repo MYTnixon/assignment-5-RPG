@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed;
+    public int hp;
+    public int attack;
+
     private bool moving;
 
     public float timeBetweenMove;
@@ -12,15 +15,21 @@ public class EnemyController : MonoBehaviour
     public float timeToMove;
     private float timeToMoveCounter;
 
+    public Transform target;
+    public float chaseRadius;
+    public float attackRadius;
+
     private Rigidbody2D rBody;
     private Vector3 moveDirection;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
-        //timeBetweenMoveCounter = timeBetweenMove;
-        //timeToMoveCounter = timeToMove;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        target = GameObject.FindWithTag("Player").transform;
 
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
         timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeBetweenMove * 1.25f);
@@ -29,6 +38,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckDistance();
+
         if (moving)
         {
             timeToMoveCounter -= Time.deltaTime;
@@ -53,6 +64,23 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+        if (rBody.velocity.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (rBody.velocity.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6f, 6f), Mathf.Clamp(transform.position.y, -4.4f, 0.3f), transform.position.z);
+    }
+
+    void CheckDistance()
+    {
+        if (Vector3.Distance(target.position, transform.position) <= chaseRadius)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        }
     }
 }

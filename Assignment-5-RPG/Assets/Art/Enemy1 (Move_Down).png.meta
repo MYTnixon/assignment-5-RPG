@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: e4f1d97c37166ef4b8347e9b046f806a
+guid: da455639eca0b064a8f9bfe6343e0f46
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1920651599068994014
-    second: Enemy1 (Move_Down_Left)_0
+      213: -9127456379123511034
+    second: Enemy1 (Move_Down)_0
   - first:
-      213: -7121193506110191969
-    second: Enemy1 (Move_Down_Left)_1
+      213: 7428097092128853035
+    second: Enemy1 (Move_Down)_1
   - first:
-      213: -3938307364872067837
-    second: Enemy1 (Move_Down_Left)_2
+      213: 7990991551658317804
+    second: Enemy1 (Move_Down)_2
   - first:
-      213: -2900469869946018692
-    second: Enemy1 (Move_Down_Left)_3
+      213: -7831142280974666331
+    second: Enemy1 (Move_Down)_3
   - first:
-      213: -7510257009245177396
-    second: Enemy1 (Move_Down_Left)_4
+      213: -4893515081577377278
+    second: Enemy1 (Move_Down)_4
   - first:
-      213: -1243148344014347893
-    second: Enemy1 (Move_Down_Left)_5
+      213: -7964134411079238729
+    second: Enemy1 (Move_Down)_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_0
+      name: Enemy1 (Move_Down)_0
       rect:
         serializedVersion: 2
-        x: 100
-        y: 112
-        width: 52
-        height: 36
+        x: 88
+        y: 100
+        width: 72
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2122a0388e35b364abc609fbd7215542
-      internalID: -1920651599068994014
+      spriteID: 087a1eebbd8e2fd449bca5d812e6ebc4
+      internalID: -9127456379123511034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_1
+      name: Enemy1 (Move_Down)_1
       rect:
         serializedVersion: 2
-        x: 360
-        y: 112
-        width: 48
-        height: 40
+        x: 344
+        y: 100
+        width: 72
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63c85f0e029b54c479a1d47cfa572ebf
-      internalID: -7121193506110191969
+      spriteID: eca502f3571a1524fb661d85d949de6e
+      internalID: 7428097092128853035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_2
+      name: Enemy1 (Move_Down)_2
       rect:
         serializedVersion: 2
-        x: 616
-        y: 112
-        width: 40
-        height: 40
+        x: 600
+        y: 100
+        width: 72
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2bfef3526fd9f242bae749306ea26e9
-      internalID: -3938307364872067837
+      spriteID: ce34a837042eabc438f047e8b725cef8
+      internalID: 7990991551658317804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_3
+      name: Enemy1 (Move_Down)_3
       rect:
         serializedVersion: 2
-        x: 872
-        y: 108
-        width: 40
-        height: 40
+        x: 856
+        y: 100
+        width: 72
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8cf01465c92374459be2e26ecd29952
-      internalID: -2900469869946018692
+      spriteID: 76f7e14f87235834284e0281478b1802
+      internalID: -7831142280974666331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_4
+      name: Enemy1 (Move_Down)_4
       rect:
         serializedVersion: 2
-        x: 1128
-        y: 108
-        width: 40
-        height: 44
+        x: 1112
+        y: 100
+        width: 72
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b8eada65f47c6f4da3d8fa2b731819a
-      internalID: -7510257009245177396
+      spriteID: ba601253af2f13d4e9c61ac7e991d6d2
+      internalID: -4893515081577377278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1 (Move_Down_Left)_5
+      name: Enemy1 (Move_Down)_5
       rect:
         serializedVersion: 2
-        x: 1380
-        y: 108
-        width: 48
-        height: 44
+        x: 1368
+        y: 100
+        width: 72
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 194fc89f1c495f0449b9a9e1e931faa4
-      internalID: -1243148344014347893
+      spriteID: 4223ca06d542b7b40b3ae9ce3af8aace
+      internalID: -7964134411079238729
       vertices: []
       indices: 
       edges: []

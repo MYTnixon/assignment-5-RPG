@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector3 vector;
     public float speed;
+    public int hp;
+    public float knockback;
+
+    private enum State { idle, running, hurt}
 
     // Start is called before the first frame update
     void Start()
@@ -57,13 +61,5 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         rbody.MovePosition(transform.position + vector * speed * Time.deltaTime);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Destroy(other.gameObject);
-        }
     }
 }
