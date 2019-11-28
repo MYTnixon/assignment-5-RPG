@@ -14,6 +14,14 @@ public class PlayerController : MonoBehaviour
     public float knockback;
     public float knockTime;
 
+    private float timeBetweenAttack;
+    public float startTimeBetweenAttack;
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
+    public Animator attackAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +33,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(timeBetweenAttack <= 0)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                animator.Play("Player_Attack");
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyController>().TakeDamage(damage);
+                }
+            }
+            timeBetweenAttack = startTimeBetweenAttack;
+        }
+        else
+        {
+            timeBetweenAttack -= Time.deltaTime;
+        }
         vector = Vector3.zero;
         vector.x = Input.GetAxisRaw("Horizontal");
         vector.y = Input.GetAxisRaw("Vertical");
@@ -88,5 +113,11 @@ public class PlayerController : MonoBehaviour
             enemy.velocity = Vector2.zero;
             enemy.isKinematic = true;
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }

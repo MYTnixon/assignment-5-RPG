@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed;
-    public int hp;
+    public int health;
     public int attack;
 
     private bool moving;
@@ -39,6 +39,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         CheckDistance();
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         if (rBody.velocity.x > 0)
         {
@@ -80,5 +85,11 @@ public class EnemyController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log("damage TAKEN !");
     }
 }
