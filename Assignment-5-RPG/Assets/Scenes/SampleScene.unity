@@ -458,9 +458,9 @@ MonoBehaviour:
   - {fileID: 366615594880959974, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
   - {fileID: 4160753575623616581, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
   - {fileID: 7685371531485235544, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
-  - {fileID: 8124259339964715380, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
-  - {fileID: 5642012044021194823, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
-  - {fileID: 4432793351920879750, guid: ba6f574f9d3e69c4ea3c4b0c2b7fa147, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   heartUI: {fileID: 1679626666}
 --- !u!1 &229641563
 GameObject:
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   attack: 0
   timeBetweenMove: 1
   timeToMove: 1
-  knockback: 8
+  knockback: 6
   knockTime: 0.2
   target: {fileID: 0}
   chaseRadius: 4
