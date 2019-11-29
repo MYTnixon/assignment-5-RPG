@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public int hp;
-    public float knockback;
-    public float knockTime;
+    
+    private bool facingRight;
+    private bool isWalking;
 
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
@@ -33,11 +34,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeBetweenAttack <= 0)
+        if (timeBetweenAttack <= 0)
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                animator.Play("Player_Attack");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
@@ -59,12 +59,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey("a"))
             {
                 animator.Play("Player_Run");
-                spriteRenderer.flipX = true;
+                facingRight = false;
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
             else if (Input.GetKey("d"))
             {
                 animator.Play("Player_Run");
-                spriteRenderer.flipX = false;
+                facingRight = true;
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             if (Input.GetKey("w"))
             {
@@ -88,31 +90,9 @@ public class PlayerController : MonoBehaviour
         rbody.MovePosition(transform.position + vector * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Damage(int dmg)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
-            if(enemy != null)
-            {
-                enemy.isKinematic = false;
-                Vector2 difference = enemy.transform.position - transform.position;
-                difference = difference.normalized * knockback;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                enemy.isKinematic = true;
-                StartCoroutine(KnockCo(enemy));
-            }
-        }
-    }
-
-    private IEnumerator KnockCo(Rigidbody2D enemy)
-    {
-        if(enemy != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            enemy.velocity = Vector2.zero;
-            enemy.isKinematic = true;
-        }
+        hp -= dmg;
     }
 
     void OnDrawGizmosSelected()

@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
     public float timeToMove;
     private float timeToMoveCounter;
 
+    public float knockback;
+    public float knockTime;
+
     public Transform target;
     public float chaseRadius;
     public float attackRadius;
@@ -23,6 +26,8 @@ public class EnemyController : MonoBehaviour
     private Vector3 moveDirection;
     SpriteRenderer spriteRenderer;
 
+    private PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         target = GameObject.FindWithTag("Player").transform;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
         timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeBetweenMove * 1.25f);
@@ -91,5 +97,32 @@ public class EnemyController : MonoBehaviour
     {
         health -= damage;
         Debug.Log("damage TAKEN !");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerController.Damage(1);
+            Rigidbody2D player = other.GetComponent<Rigidbody2D>();
+            if (player != null)
+            {
+                player.isKinematic = false;
+                Vector2 difference = player.transform.position - transform.position;
+                difference = difference.normalized * knockback;
+                player.AddForce(difference, ForceMode2D.Impulse);
+                StartCoroutine(KnockCo(player));
+            }
+        }
+    }
+
+    private IEnumerator KnockCo(Rigidbody2D player)
+    {
+        if (player != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            player.velocity = Vector2.zero;
+            player.isKinematic = true;
+        }
     }
 }
