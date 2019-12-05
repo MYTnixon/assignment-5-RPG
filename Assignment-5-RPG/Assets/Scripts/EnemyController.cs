@@ -95,8 +95,14 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        Debug.Log("damage TAKEN !");
+        if (playerController.weaponIsEquipped)
+        {
+            health -= 2;
+        }
+        else
+        {
+            health -= damage;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

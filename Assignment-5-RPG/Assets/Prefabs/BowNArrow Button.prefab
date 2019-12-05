@@ -117,7 +117,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3463535622124845823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900691995142114218}
+        m_MethodName: EquipItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &900691995142114218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 4318825445065987772, guid: 9974fd6689598734cad5543174b2c789, type: 3}
+  itemButton: {fileID: 8696726311628173482}
+  isArmour: 0
+  isWeapon: 1

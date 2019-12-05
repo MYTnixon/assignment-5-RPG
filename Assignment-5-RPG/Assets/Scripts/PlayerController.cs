@@ -93,7 +93,14 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(int dmg)
     {
-        hp -= dmg;
+        if (armourIsEquipped)
+        {
+            hp -= dmg;
+        }
+        else
+        {
+            hp -= 2;
+        }
     }
 
     void OnDrawGizmosSelected()

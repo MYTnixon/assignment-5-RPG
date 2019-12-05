@@ -5,6 +5,7 @@ using UnityEngine;
 public class EquipmentSlot : MonoBehaviour
 {
     private PlayerController playerController;
+    private Inventory inventory;
     private Equipment equipment;
     private ItemButton itemButton;
 
@@ -12,6 +13,7 @@ public class EquipmentSlot : MonoBehaviour
     {
         equipment = GameObject.FindGameObjectWithTag("Player").GetComponent<Equipment>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
     }
 
     private void Update()
@@ -27,7 +29,6 @@ public class EquipmentSlot : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            itemButton = GameObject.FindGameObjectWithTag("InteractButton").GetComponent<ItemButton>();
             child.GetComponent<ItemButton>().SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
             playerController.armourIsEquipped = false;
@@ -38,7 +39,6 @@ public class EquipmentSlot : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            itemButton = GameObject.FindGameObjectWithTag("InteractButton").GetComponent<ItemButton>();
             child.GetComponent<ItemButton>().SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
             playerController.weaponIsEquipped = false;
