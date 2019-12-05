@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6318383057861529280}
   m_Layer: 0
   m_Name: Health Pot Pickup
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemButton: {fileID: 7208845393150791795, guid: d56bbb03e65c567418aa3df20eee4fad,
     type: 3}
+  isArmor: 0
+  protection: 0
 --- !u!58 &6318383057861529280
 CircleCollider2D:
   m_ObjectHideFlags: 0

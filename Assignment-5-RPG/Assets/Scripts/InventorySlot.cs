@@ -24,9 +24,8 @@ public class InventorySlot : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            child.GetComponent<ItemDrop>().SpawnDroppedItem();
+            child.GetComponent<ItemButton>().SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
         }
     }
-
 }

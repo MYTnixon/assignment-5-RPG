@@ -103,7 +103,6 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerController.Damage(1);
             Rigidbody2D player = other.GetComponent<Rigidbody2D>();
             if (player != null)
             {
@@ -113,6 +112,7 @@ public class EnemyController : MonoBehaviour
                 player.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockCo(player));
             }
+            playerController.Damage(1);
         }
     }
 

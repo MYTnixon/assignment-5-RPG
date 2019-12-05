@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Iteractable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     private Inventory inventory;
+    private PlayerController playerController;
     public GameObject itemButton;
-
+    
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

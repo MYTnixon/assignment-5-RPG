@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1388468999562316632}
   m_Layer: 5
   m_Name: SwordButton
-  m_TagString: Untagged
+  m_TagString: InteractButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3559454408171123317}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1388468999562316632}
+        m_MethodName: EquipItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-1388468999562316632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,3 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 5301449859943856267, guid: a8f3a24afe7dc8e48882d9b796e58a58, type: 3}
+  itemButton: {fileID: 3559454408171123319}
+  isArmour: 0
+  isWeapon: 1

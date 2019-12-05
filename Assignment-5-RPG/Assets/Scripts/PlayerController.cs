@@ -23,7 +23,9 @@ public class PlayerController : MonoBehaviour
     public int damage;
     public Animator attackAnim;
 
-    // Start is called before the first frame update
+    public bool armourIsEquipped;
+    public bool weaponIsEquipped;
+
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -31,7 +33,6 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timeBetweenAttack <= 0)
