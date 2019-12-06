@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.enemyCount += 1; 
         rBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -49,6 +50,7 @@ public class EnemyController : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+            GameManager.Instance.enemyCount -= 1;
         }
 
         if (rBody.velocity.x > 0)
