@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class PlayerController : MonoBehaviour
     Vector3 vector;
 
     public float speed;
-    public int hp;
     
     private bool facingRight;
     private bool isWalking;
+
+    public float knockback;
+    public float knockTime;
 
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
@@ -95,11 +98,11 @@ public class PlayerController : MonoBehaviour
     {
         if (armourIsEquipped)
         {
-            hp -= dmg;
+            GameManager.Instance.TakeDamage(1);
         }
         else
         {
-            hp -= 2;
+            GameManager.Instance.TakeDamage(2);
         }
     }
 
@@ -107,5 +110,15 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("NextLevel"))
+        {
+            int c = SceneManager.GetActiveScene().buildIndex;
+            if (c < SceneManager.sceneCountInBuildSettings)
+                SceneManager.LoadScene(c + 1);
+        }
     }
 }

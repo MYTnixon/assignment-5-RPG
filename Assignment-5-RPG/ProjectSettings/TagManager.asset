@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Enemy
   - Interactable
+  - HUD
+  - NextLevel
   layers:
   - Default
   - TransparentFX

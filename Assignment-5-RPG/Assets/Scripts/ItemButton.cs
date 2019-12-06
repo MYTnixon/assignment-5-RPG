@@ -12,6 +12,7 @@ public class ItemButton : MonoBehaviour
 
     public bool isArmour;
     public bool isWeapon;
+    public bool isHealth;
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,12 @@ public class ItemButton : MonoBehaviour
                 }
             }
             playerController.weaponIsEquipped = true;
+        }
+
+        if (isHealth && GameManager.Instance.hp < 5)
+        {
+            GameManager.Instance.GainHealth(1);
+            Destroy(gameObject);
         }
     }
 }
