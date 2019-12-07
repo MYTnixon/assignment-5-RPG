@@ -12,6 +12,7 @@ public class ItemButton : MonoBehaviour
 
     public bool isArmour;
     public bool isWeapon;
+    public bool isBow;
     public bool isHealth;
     
     // Start is called before the first frame update
@@ -58,6 +59,10 @@ public class ItemButton : MonoBehaviour
                 }
             }
             playerController.weaponIsEquipped = true;
+            if (isBow)
+            {
+                playerController.bowIsEquipped = true;
+            }
         }
 
         if (isHealth && GameManager.Instance.hp < 5)

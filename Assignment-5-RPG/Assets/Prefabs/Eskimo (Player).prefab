@@ -167,9 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36a4e69d3854fa4f8764a9a1768e6b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bowWeapon: {fileID: 0}
   speed: 4
-  knockback: 5
-  knockTime: 0.2
   startTimeBetweenAttack: 0.5
   attackPos: {fileID: 182002143332374061}
   whatIsEnemies:
@@ -180,6 +179,7 @@ MonoBehaviour:
   attackAnim: {fileID: 182002142995087147}
   armourIsEquipped: 0
   weaponIsEquipped: 0
+  bowIsEquipped: 0
 --- !u!114 &182002142995087153
 MonoBehaviour:
   m_ObjectHideFlags: 0

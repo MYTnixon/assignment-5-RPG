@@ -9,14 +9,11 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
     Vector3 vector;
+    public GameObject bowWeapon;
 
     public float speed;
     
-    private bool facingRight;
     private bool isWalking;
-
-    public float knockback;
-    public float knockTime;
 
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
@@ -28,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public bool armourIsEquipped;
     public bool weaponIsEquipped;
+    public bool bowIsEquipped;
 
     void Start()
     {
@@ -63,14 +61,12 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey("a"))
             {
                 animator.Play("Player_Run");
-                facingRight = false;
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                spriteRenderer.flipX = true;
             }
             else if (Input.GetKey("d"))
             {
                 animator.Play("Player_Run");
-                facingRight = true;
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                spriteRenderer.flipX = false;
             }
             if (Input.GetKey("w"))
             {
@@ -86,7 +82,16 @@ public class PlayerController : MonoBehaviour
             animator.Play("Player_Idle");
         }
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6f, 6f), Mathf.Clamp(transform.position.y, -4.4f, 0.3f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 46f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
+
+        if (bowIsEquipped)
+        {
+            bowWeapon.SetActive(true);
+        }
+        else
+        {
+            bowWeapon.SetActive(false);
+        }
     }
 
     void Move()
@@ -110,15 +115,5 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("NextLevel"))
-        {
-            int c = SceneManager.GetActiveScene().buildIndex;
-            if (c < SceneManager.sceneCountInBuildSettings)
-                SceneManager.LoadScene(c + 1);
-        }
     }
 }

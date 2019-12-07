@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1db89a7272c5b2a45ad17b705f61c213, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,9 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemButton: {fileID: 7540593909782838872, guid: e50a61a496c168c41b2fdcd4e4e874bd,
     type: 3}
-  isArmour: 1
-  armourIsEquipped: 0
-  protection: 0
 --- !u!58 &5201410845384641195
 CircleCollider2D:
   m_ObjectHideFlags: 0

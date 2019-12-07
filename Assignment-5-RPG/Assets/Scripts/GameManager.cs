@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public int coins;
     public int hp;
-    public int enemyCount;
 
     private void Awake()
     {

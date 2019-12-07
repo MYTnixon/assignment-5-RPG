@@ -42,6 +42,7 @@ public class EquipmentSlot : MonoBehaviour
             child.GetComponent<ItemButton>().SpawnDroppedItem();
             GameObject.Destroy(child.gameObject);
             playerController.weaponIsEquipped = false;
+            playerController.bowIsEquipped = false;
         }
     }
 }
