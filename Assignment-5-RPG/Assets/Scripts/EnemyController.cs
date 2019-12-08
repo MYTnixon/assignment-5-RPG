@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -6f, 6f), Mathf.Clamp(transform.position.y, -4.4f, 0.3f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 46f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
     }
 
     void CheckDistance()
@@ -119,6 +119,10 @@ public class EnemyController : MonoBehaviour
                 StartCoroutine(KnockCo(player));
             }
             playerController.Damage(1);
+        }
+        else if (other.gameObject.CompareTag("Arrow"))
+        {
+            health -= 2;
         }
     }
 
