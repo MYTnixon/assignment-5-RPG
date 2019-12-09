@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bow : MonoBehaviour
 {
-    private PlayerController playerController;
-
     public float offset;
 
     public GameObject arrow;
@@ -13,11 +11,6 @@ public class Bow : MonoBehaviour
 
     private float timeBtwShots;
     public float startTimeBtwShots;
-
-    private void Start()
-    {
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    }
 
     // Update is called once per frame
     private void Update()

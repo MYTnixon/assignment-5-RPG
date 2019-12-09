@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector3 vector;
     public GameObject bowWeapon;
+    public GameObject swordWeapon;
 
     public float speed;
     
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool armourIsEquipped;
     public bool weaponIsEquipped;
     public bool bowIsEquipped;
+    public bool swordIsEquipped;
 
     void Start()
     {
@@ -91,6 +93,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             bowWeapon.SetActive(false);
+        }
+
+        if (swordIsEquipped)
+        {
+            swordWeapon.SetActive(true);
+        }
+        else
+        {
+            swordWeapon.SetActive(false);
         }
     }
 

@@ -14,6 +14,7 @@ public class ItemButton : MonoBehaviour
     public bool isWeapon;
     public bool isBow;
     public bool isHealth;
+    public bool isSword;
     
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,10 @@ public class ItemButton : MonoBehaviour
             if (isBow)
             {
                 playerController.bowIsEquipped = true;
+            }
+            else if (isSword)
+            {
+                playerController.swordIsEquipped = true;
             }
         }
 

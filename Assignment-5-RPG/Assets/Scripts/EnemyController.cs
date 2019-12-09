@@ -124,6 +124,10 @@ public class EnemyController : MonoBehaviour
         {
             health -= 2;
         }
+        else if (other.gameObject.CompareTag("Sword"))
+        {
+            health -= 1;
+        }
     }
 
     private IEnumerator KnockCo(Rigidbody2D player)

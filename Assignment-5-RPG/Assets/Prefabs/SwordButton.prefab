@@ -145,3 +145,6 @@ MonoBehaviour:
   itemButton: {fileID: 3559454408171123319}
   isArmour: 0
   isWeapon: 1
+  isBow: 0
+  isHealth: 0
+  isSword: 1

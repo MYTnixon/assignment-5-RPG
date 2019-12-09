@@ -43,6 +43,7 @@ public class EquipmentSlot : MonoBehaviour
             GameObject.Destroy(child.gameObject);
             playerController.weaponIsEquipped = false;
             playerController.bowIsEquipped = false;
+            playerController.swordIsEquipped = false;
         }
     }
 }
