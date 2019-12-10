@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private PlayerController playerController;
-    private HUD hud;
 
-    public int coins;
     public int hp;
 
     private void Awake()
@@ -25,10 +23,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
     }
 
-    public void TakeDamage(int healthToDeduct)
+    /*public void TakeDamage(int healthToDeduct)
     {
         hp -= healthToDeduct;
     }
@@ -36,14 +33,14 @@ public class GameManager : MonoBehaviour
     public void GainHealth(int healthToAdd)
     {
         hp += healthToAdd;
-    }
+    }*/
 
     private void Update()
     {
-        if(hp <= 0)
+        if(playerController.hp <= 0)
         {
             SceneManager.LoadScene(0);
-            hp = 5;
+            playerController.hp = 5;
         }
     }
 }

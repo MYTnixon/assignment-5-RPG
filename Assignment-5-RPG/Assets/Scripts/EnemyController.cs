@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 46f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 65f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
     }
 
     void CheckDistance()

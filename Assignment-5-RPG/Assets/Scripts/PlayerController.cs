@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject swordWeapon;
 
     public float speed;
-    
+    public int hp;
+
     private bool isWalking;
 
     private float timeBetweenAttack;
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("Player_Idle");
         }
 
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 46f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -11f, 65f), Mathf.Clamp(transform.position.y, -5f, -0.6f), transform.position.z);
 
         if (bowIsEquipped)
         {
@@ -114,11 +115,11 @@ public class PlayerController : MonoBehaviour
     {
         if (armourIsEquipped)
         {
-            GameManager.Instance.TakeDamage(1);
+            hp -= 1;
         }
         else
         {
-            GameManager.Instance.TakeDamage(2);
+            hp -= 2;
         }
     }
 
@@ -126,5 +127,21 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        hp = data.playerHealth;
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
     }
 }

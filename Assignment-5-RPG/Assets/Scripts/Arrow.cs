@@ -6,11 +6,9 @@ public class Arrow : MonoBehaviour
 {
     public float lifeTime;
     public float speed;
-    private EnemyController enemyController;
 
     private void Start()
     {
-        enemyController = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
         Invoke("DestroyArrow", lifeTime);
     }
 

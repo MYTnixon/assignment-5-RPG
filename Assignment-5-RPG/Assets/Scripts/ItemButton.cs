@@ -70,9 +70,9 @@ public class ItemButton : MonoBehaviour
             }
         }
 
-        if (isHealth && GameManager.Instance.hp < 5)
+        if (isHealth && playerController.hp < 5)
         {
-            GameManager.Instance.GainHealth(1);
+            playerController.hp += 1;
             Destroy(gameObject);
         }
     }
