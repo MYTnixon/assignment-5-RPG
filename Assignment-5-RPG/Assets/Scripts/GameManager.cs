@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     private PlayerController playerController;
 
-    public int hp;
-
     private void Awake()
     {
         if (Instance == null)
@@ -37,9 +35,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(playerController.hp <= 0)
+        if (playerController.hp <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
             playerController.hp = 5;
         }
     }

@@ -17,4 +17,6 @@ public class PlayerData
         position[1] = playerController.transform.position.y;
         position[2] = playerController.transform.position.z;
     }
+
+
 }
